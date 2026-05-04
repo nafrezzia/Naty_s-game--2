@@ -152,18 +152,18 @@ body {
 
 #game-container { padding-top: 0.5rem; }
 
-.zoe-box {
+.jon-box {
   display: flex; align-items: flex-start; gap: 10px;
   background: #EAF3DE; border-radius: 10px;
   padding: 10px 14px; margin-bottom: 1.25rem; line-height: 1.6;
 }
-.zoe-avatar {
+.jon-avatar {
   width: 28px; height: 28px; min-width: 28px; border-radius: 50%;
   background: #C0DD97; display: flex; align-items: center; justify-content: center;
   font-size: 14px; margin-top: 1px;
 }
-.zoe-name { font-size: 12px; font-weight: 500; color: #3B6D11; margin-bottom: 2px; }
-.zoe-text { font-size: 13px; color: #27500A; }
+.jon-name { font-size: 12px; font-weight: 500; color: #3B6D11; margin-bottom: 2px; }
+.jon-text { font-size: 13px; color: #27500A; }
 
 .gene-library { display: flex; flex-direction: column; gap: 8px; }
 

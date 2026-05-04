@@ -28,19 +28,19 @@ export async function runLevel(id, container, onComplete) {
 
   container.innerHTML = '';
 
-  // ── Dr. Zoe hint box ──────────────────────────────────────────────────────
-  const zoeBox = document.createElement('div');
-  zoeBox.className = 'zoe-box';
-  zoeBox.innerHTML = `
-    <div class="zoe-avatar">🔬</div>
+  // ── Assistant Jon hint box ───────────────────────────────────────────────────
+  const jonBox = document.createElement('div');
+  jonBox.className = 'jon-box';
+  jonBox.innerHTML = `
+    <div class="jon-avatar">🔬</div>
     <div>
-      <div class="zoe-name">Dr. Zoe says:</div>
-      <div class="zoe-text" id="zoe-text">${config.zoeIntro}</div>
+      <div class="jon-name">Assistant Jon says:</div>
+      <div class="jon-text" id="jon-text">${config.zoeIntro}</div>
     </div>
   `;
-  container.appendChild(zoeBox);
+  container.appendChild(jonBox);
 
-  const setZoe = (msg) => { document.getElementById('zoe-text').textContent = msg; };
+  const setJon = (msg) => { document.getElementById('jon-text').textContent = msg; };
 
   // ── Field/results grid ────────────────────────────────────────────────────
   if (config.grid) {
@@ -153,7 +153,7 @@ export async function runLevel(id, container, onComplete) {
     if (chosen[i]) { removeGene(i); return; }
     activeSlot = i;
     slotEls.forEach((s, idx) => s.classList.toggle('highlight', idx === i));
-    setZoe('Now click a gene from the library to put it here!');
+    setJon('Now click a gene from the library to put it here!');
   }
 
   function selectGene(geneId) {
@@ -183,7 +183,7 @@ export async function runLevel(id, container, onComplete) {
       const wrap = document.getElementById('organism-art-wrap');
       if (wrap) wrap.innerHTML = config.buildOrganism(chosen.filter(Boolean));
     }
-    setZoe(remaining > 0
+    setJon(remaining > 0
       ? `Good choice! ${remaining} more gene${remaining > 1 ? 's' : ''} to add.`
       : `All ${config.slots} genes added — hit "${config.growLabel || 'Grow!'}" to see what happens!`
     );
@@ -206,7 +206,7 @@ export async function runLevel(id, container, onComplete) {
       const wrap = document.getElementById('organism-art-wrap');
       if (wrap) wrap.innerHTML = config.buildOrganism(chosen.filter(Boolean));
     }
-    setZoe(config.zoeIntro);
+    setJon(config.zoeIntro);
   }
 
   function runSim() {
@@ -229,11 +229,11 @@ export async function runLevel(id, container, onComplete) {
     }
 
     if (result.verdict === 'win') {
-      setZoe(config.zoeWin || 'Amazing work, scientist!');
+      setJon(config.zoeWin || 'Amazing work, scientist!');
     } else if (result.verdict === 'fail') {
-      setZoe(config.zoeFail || 'Hmm, that didn\'t work. Read the hint and try again!');
+      setJon(config.zoeFail || 'Hmm, that didn\'t work. Read the hint and try again!');
     } else {
-      setZoe(config.zoeWarn || 'Getting closer! Read the hint carefully.');
+      setJon(config.zoeWarn || 'Getting closer! Read the hint carefully.');
     }
   }
 
